@@ -24,7 +24,6 @@ public class ListaAlunosActivity extends AppCompatActivity {
         setContentView(R.layout.activity_lista_alunos);
 
         setTitle(TITULO_APPBAR);
-
         configuraFabNovoAluno();
 
 
