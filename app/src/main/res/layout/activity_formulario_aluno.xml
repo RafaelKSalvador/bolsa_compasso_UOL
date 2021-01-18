@@ -1,46 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
 
-    <EditText android:id="@+id/activity_formulario_aluno_nome"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_margin="8dp"
-        android:hint="Nome"
-        android:inputType="textCapWords"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-    <EditText android:id="@+id/activity_formulario_aluno_telefone"
-        android:layout_width="match_parent"
-        android:layout_margin="8dp"
-        android:hint="Telefone"
-        android:inputType="phone"
-        android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/activity_formulario_aluno_nome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:hint="Nome"
+            android:inputType="textCapWords" />
 
-    <EditText android:id="@+id/activity_formulario_aluno_email"
-        android:layout_width="match_parent"
-        android:layout_margin="8dp"
-        android:hint="E-mail"
-        android:inputType="textEmailAddress"
-        android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/activity_formulario_aluno_telefone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:hint="Telefone"
+            android:inputType="phone" />
 
-    <Button android:id="@+id/activity_formulario_aluno_botao_salvar"
-        android:layout_width="match_parent"
-        android:layout_margin="8dp"
-        android:text="Salvar"
-        android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/activity_formulario_aluno_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:hint="E-mail"
+            android:inputType="textEmailAddress" />
 
 
-</LinearLayout>
-<!--Linha 5, orientação de cima para baixo-->
-<!--Linha 7, EditText é utilizado para adição de texto-->
-<!--Linha 8, width é relacionado a ocupação do espaço da tela,
-com a utilização do match_parent garantimos que seja ocupado toda extensão
-do pai-->
-<!--Linha 12, height é relacionado a altura, e com a utilização de
-wrap_content garantimos que seja utilizado o necessário-->
-<!--Linha 9, margin é utilizado para identificar a margem do EditText-->
-<!--Linha 10, hint tem a proposta de identificar uma dica ao usuário-->
-<!--Linha 11, utilizamos textCapWords para obtermos sempre uma letra
-maiúscula ao início de uma frase-->
+    </LinearLayout>
+
+</ScrollView>
+
+    <!--orientation="vertical", orientação de cima para baixo-->
+    <!--EditText é utilizado para adição de texto-->
+    <!--width é relacionado a ocupação do espaço da tela,
+    com a utilização do match_parent garantimos que seja ocupado toda extensão
+    do pai-->
+    <!--height é relacionado a altura, e com a utilização de
+    wrap_content garantimos que seja utilizado o necessário-->
+    <!--margin é utilizado para identificar a margem do EditText-->
+    <!--hint tem a proposta de identificar uma dica ao usuário-->
+    <!--textCapWords é utilizado para obtermos sempre uma letra
+    maiúscula ao início de uma frase-->
