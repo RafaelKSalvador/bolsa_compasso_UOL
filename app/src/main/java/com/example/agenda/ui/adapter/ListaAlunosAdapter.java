@@ -15,7 +15,7 @@ import java.util.List;
 
 public class ListaAlunosAdapter extends BaseAdapter {
     private final List<Aluno> alunos = new ArrayList<>();
-    private Context contenxt;
+    private final Context contenxt;
 
     public ListaAlunosAdapter(Context contenxt) {
         this.contenxt = contenxt;
@@ -38,25 +38,32 @@ public class ListaAlunosAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View view, ViewGroup viewGroup) { /*representa a view que estaremos apresentando para cada elemento do adapter*/
-        View viewCriada = LayoutInflater.from(contenxt)
-                .inflate(R.layout.item_aluno, viewGroup, false);
+        View viewCriada = criaView(viewGroup);
         Aluno alunoDevolvido = alunos.get(position);
-        TextView nome = viewCriada.findViewById(R.id.item_aluno_nome);
-        nome.setText(alunoDevolvido.getNome());
-        TextView telefone = viewCriada.findViewById(R.id.item_aluno_telefone);
-        telefone.setText(alunoDevolvido.getTelefone());
+        vincula(viewCriada, alunoDevolvido);
         return viewCriada;
     }
 
-    public void clear() {
-        alunos.clear();
+    private void vincula(View view, Aluno aluno) {
+        TextView nome = view.findViewById(R.id.item_aluno_nome);
+        nome.setText(aluno.getNome());
+        TextView telefone = view.findViewById(R.id.item_aluno_telefone);
+        telefone.setText(aluno.getTelefone());
     }
 
-    public void addAll(List<Aluno> todos) {
+    private View criaView(ViewGroup viewGroup) {
+        return LayoutInflater.from(contenxt)
+                .inflate(R.layout.item_aluno, viewGroup, false);
+    }
+
+    public void atualiza(List<Aluno> alunos) {
+        this.alunos.clear();
         this.alunos.addAll(alunos);
+        notifyDataSetChanged();
     }
 
     public void remove(Aluno aluno) {
         alunos.remove(aluno);
+        notifyDataSetChanged();
     }
 }
