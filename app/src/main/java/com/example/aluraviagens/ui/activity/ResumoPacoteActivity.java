@@ -2,8 +2,11 @@ package com.example.aluraviagens.ui.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,7 +18,8 @@ import com.example.aluraviagens.util.MoedaUtil;
 import com.example.aluraviagens.util.ResourceUtil;
 
 
-import java.math.BigDecimal;
+
+import static com.example.aluraviagens.ui.activity.PacoteActivityConstantes.CHAVE_PACOTE;
 
 
 public class ResumoPacoteActivity extends AppCompatActivity {
@@ -28,15 +32,41 @@ public class ResumoPacoteActivity extends AppCompatActivity {
         setContentView(R.layout.activity_resumo_pacote);
 
         setTitle(TITULO_APPBAR);
+        carregaPacoteRecebido();
+    }
 
-        Pacote pacoteSaoPaulo = new Pacote("São Paulo", "sao_paulo_sp", 2,
-                new BigDecimal("243.99"));
+    private void carregaPacoteRecebido() {
+        Intent intent = getIntent();
+        if(intent.hasExtra(CHAVE_PACOTE)){
+           final Pacote pacote = (Pacote) intent.getSerializableExtra(CHAVE_PACOTE);
 
-        mostraLocal(pacoteSaoPaulo);
-        mostraImagem(pacoteSaoPaulo);
-        mostraDias(pacoteSaoPaulo);
-        mostraPreco(pacoteSaoPaulo);
-        mostraData(pacoteSaoPaulo);
+            inicializaCampos(pacote);
+            configuraBotao(pacote);
+        }
+    }
+
+    private void configuraBotao(Pacote pacote) {
+        Button botaoRealizaPagamento = findViewById(R.id.resumo_pacote_botao_realiza_pagamento);
+        botaoRealizaPagamento.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                vaiParaPagamento(pacote);
+            }
+        });
+    }
+
+    private void vaiParaPagamento(Pacote pacote) {
+        Intent intent = new Intent(ResumoPacoteActivity.this, PagamentoActivity.class);
+        intent.putExtra(CHAVE_PACOTE, pacote);
+        startActivity(intent);
+    }
+
+    private void inicializaCampos(Pacote pacote) {
+        mostraLocal(pacote);
+        mostraImagem(pacote);
+        mostraDias(pacote);
+        mostraPreco(pacote);
+        mostraData(pacote);
     }
 
     private void mostraData(Pacote pacote) {
