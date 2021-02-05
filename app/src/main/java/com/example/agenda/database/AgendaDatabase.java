@@ -6,39 +6,29 @@ import androidx.annotation.NonNull;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+import androidx.room.TypeConverters;
 import androidx.room.migration.Migration;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
+import com.example.agenda.database.converter.ConversorCalendar;
 import com.example.agenda.database.dao.AlunoDAO;
 import com.example.agenda.model.Aluno;
 
-@Database(entities = {Aluno.class}, version = 3, exportSchema = false)
+import static com.example.agenda.database.AgendaMigrations.TODAS_MIGRATIONS;
+
+@Database(entities = {Aluno.class}, version = 4, exportSchema = false)
+@TypeConverters({ConversorCalendar.class})
 public abstract class AgendaDatabase extends RoomDatabase {
 
     private static final String NOME_BANCO_DE_DADOS = "agenda.db";
+
 
     public abstract AlunoDAO getRoomAlunoDAO();
 
     public static AgendaDatabase getInstance(Context context){
         return Room.databaseBuilder(context, AgendaDatabase.class, NOME_BANCO_DE_DADOS)
                 .allowMainThreadQueries()
-                .addMigrations(new Migration(1, 2) {
-                    @Override
-                    public void migrate(@NonNull SupportSQLiteDatabase database) {
-                        database.execSQL("ALTER TABLE aluno ADD COLUMN sobrenome TEXT");
-                    }
-                }, new Migration(2, 3) {
-                    @Override
-                    public void migrate(@NonNull SupportSQLiteDatabase database) {
-                        // Criar nova tabela com as informacoes desejadas
-
-                        // Copiar dados da tabela antiga para a nova
-
-                        // Remove tabela antiga
-
-                        // Renomear a tabela nova com o nome da tabela antiga
-                    }
-                })
+                .addMigrations(TODAS_MIGRATIONS)
                 .build();
     }
 }
