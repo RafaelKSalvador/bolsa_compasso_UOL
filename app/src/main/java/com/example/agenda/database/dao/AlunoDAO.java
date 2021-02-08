@@ -13,7 +13,7 @@ import java.util.List;
 @Dao
 public interface AlunoDAO {
     @Insert
-    void salva(Aluno aluno);
+    Long salva(Aluno aluno);
 
     @Query("SELECT * FROM Aluno")
     List<Aluno> todos();
