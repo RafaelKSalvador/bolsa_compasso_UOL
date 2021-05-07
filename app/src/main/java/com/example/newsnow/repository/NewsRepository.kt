@@ -10,10 +10,6 @@ class NewsRepository(val db: ArticleDatabase){
     suspend fun getBreakingNews(countryCode:String, pageNumber:Int) =
         RetrofitInstance.api.getBreakingNews(countryCode, pageNumber)
 
-    // função get para pegar notícias de tecnologia
-    suspend fun getTechNews(source:String, pageNumber:Int) =
-        RetrofitInstance.api.getTechNews(source, pageNumber)
-
     // função para fazer a pesquisa de notícias
     suspend fun searchNews(searchQuery: String, pageNumber: Int) =
         RetrofitInstance.api.searchForNews(searchQuery, pageNumber)

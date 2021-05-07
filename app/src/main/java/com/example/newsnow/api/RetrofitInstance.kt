@@ -1,6 +1,7 @@
 package com.example.newsnow.api
 
 import com.example.newsnow.utils.Constants.Companion.URL
+import com.example.newsnow.utils.NewsNow
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -24,11 +25,8 @@ class RetrofitInstance {
                 .build()
         }
 
-        val api by lazy {
-
+        val api: NewsApi by lazy {
             retrofit.create(NewsApi::class.java)
         }
-
     }
-
 }

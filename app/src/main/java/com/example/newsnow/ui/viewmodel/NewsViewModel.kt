@@ -28,20 +28,13 @@ class NewsViewModel(
     var breakingNewsPage = 1
     var breakingNewsResponse: NewsResponse? = null
 
-
-    val techNews: MutableLiveData<Resource<NewsResponse>> = MutableLiveData()
-    var techNewsPage = 1
-    var techNewsResponse: NewsResponse? = null
-
-
     val searchNews: MutableLiveData<Resource<NewsResponse>> = MutableLiveData()
     var searchNewsPage = 1
     var searchNewsResponse: NewsResponse? = null
 
 
     init {
-        getBreakingNews("in")
-        getTechNews("techcrunch")
+        getBreakingNews("us")
     }
 
 
@@ -53,11 +46,6 @@ class NewsViewModel(
     //função de pesquisa para notícias
     fun searchNews(searchQuery: String) = viewModelScope.launch {
         safeSearchNewsCall(searchQuery)
-    }
-
-    //função get para pegar notícias de tecnologia
-    fun getTechNews(source: String) = viewModelScope.launch {
-        safeTechNewsCall(source)
     }
 
 
@@ -78,27 +66,6 @@ class NewsViewModel(
                 is IOException -> breakingNews.postValue(Resource.Error("Network Failure"))
                 is UnknownHostException -> breakingNews.postValue(Resource.Error("Unknown host!"))
                 else -> breakingNews.postValue(Resource.Error("Conversion Error"))
-            }
-        }
-    }
-
-    //chamada da função TechNews e tratamento de erros para testar a conexão
-    private suspend fun safeTechNewsCall(source: String) {
-        techNews.postValue(Resource.Loading())
-
-        try {
-            if (hasInternetConnection()) {
-                val response = newsRepository.getTechNews(source, techNewsPage)
-                techNews.postValue(handleTechNewsResponse(response))
-            } else {
-                techNews.postValue(Resource.Error("No internet connection"))
-            }
-
-        } catch (t: Throwable) {
-            when (t) {
-                is IOException -> techNews.postValue(Resource.Error("Network Failure"))
-                is UnknownHostException -> techNews.postValue(Resource.Error("Unknown host!"))
-                else -> techNews.postValue(Resource.Error("Conversion Error"))
             }
         }
     }
@@ -143,27 +110,6 @@ class NewsViewModel(
         return Resource.Error(response.message())
     }
 
-
-    //trabalhando com a resposta da função Tech News
-    private fun handleTechNewsResponse(response: Response<NewsResponse>): Resource<NewsResponse> {
-
-        if (response.isSuccessful) {
-            response.body()?.let { resultResponse ->
-                techNewsPage++
-                if (techNewsResponse == null) {
-                    techNewsResponse = resultResponse
-                } else {
-                    val oldArticles = techNewsResponse?.articles
-                    val newArticles = resultResponse.articles
-                    oldArticles?.addAll(newArticles)
-                }
-                return Resource.Success(techNewsResponse ?: resultResponse)
-            }
-        }
-        return Resource.Error(response.message())
-    }
-
-
     //trabalhando com a resposta da função Search News
     private fun handleSearchNewsResponse(response: Response<NewsResponse>): Resource<NewsResponse> {
 
@@ -187,32 +133,29 @@ class NewsViewModel(
         newsRepository.upsert(article)
     }
 
-    fun getSavedArticles() = newsRepository.getSavedNews()
-
-    fun deleteArticle(article: Article) = viewModelScope.launch {
-        newsRepository.deleteArticle(article)
-    }
+//    fun getSavedArticles() = newsRepository.getSavedNews()
+//
+//    fun deleteArticle(article: Article) = viewModelScope.launch {
+//        newsRepository.deleteArticle(article)
+//    }
 
     //função para testar a conexão com a rede
     private fun hasInternetConnection(): Boolean {
-
         val connectivityManager = getApplication<NewsNow>().getSystemService(
-            Context.CONNECTIVITY_SERVICE
+                Context.CONNECTIVITY_SERVICE
         ) as ConnectivityManager
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            val activeNetwork = connectivityManager.activeNetwork ?: return false
-            val capabilities =
-                connectivityManager.getNetworkCapabilities(activeNetwork) ?: return false
+            val activityNetwork = connectivityManager.activeNetwork ?: return false
+            val capabilities = connectivityManager.getNetworkCapabilities(activityNetwork) ?: return false
             return when {
                 capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) -> true
                 capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) -> true
                 capabilities.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET) -> true
                 else -> false
-
             }
         } else {
             connectivityManager.activeNetworkInfo?.run {
-                return when (type) {
+                return when(type) {
                     ConnectivityManager.TYPE_WIFI -> true
                     ConnectivityManager.TYPE_MOBILE -> true
                     ConnectivityManager.TYPE_ETHERNET -> true

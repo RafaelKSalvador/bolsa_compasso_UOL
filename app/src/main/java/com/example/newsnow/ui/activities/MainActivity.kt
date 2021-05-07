@@ -3,11 +3,15 @@ package com.example.newsnow.ui.activities
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+
+import androidx.navigation.ui.setupWithNavController
 import com.example.newsnow.R
 import com.example.newsnow.database.ArticleDatabase
 import com.example.newsnow.repository.NewsRepository
 import com.example.newsnow.ui.viewmodel.NewsViewModel
 import com.example.newsnow.ui.viewmodel.NewsViewModelProviderFactory
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -21,8 +25,8 @@ class MainActivity : AppCompatActivity() {
         val viewModelProviderFactory = NewsViewModelProviderFactory(application, newsRepository)
         viewModel = ViewModelProvider(this,viewModelProviderFactory).get(NewsViewModel::class.java)
 
-//        // inicialização do bottom navigation
-//        bottom_navigation.setupWithNavController(nav_host_fragment.findNavController())
+        // inicialização do bottom navigation
+        bottom_navigation.setupWithNavController(nav_host_fragment.findNavController())
 
     }
 }

@@ -11,6 +11,19 @@
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
 
+        <action
+            android:id="@+id/action_homeFragment_to_articleDetailsFragment"
+            app:destination="@id/articleDetailsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/articleDetailsFragment"
+        android:name="com.example.newsnow.ui.fragments.ArticleDetailsFragment"
+        android:label="fragment_article_details"
+        tools:layout="@layout/fragment_article_details">
+        <argument
+            android:name="article"
+            app:argType="com.example.newsnow.model.Article" />
     </fragment>
 
 </navigation>

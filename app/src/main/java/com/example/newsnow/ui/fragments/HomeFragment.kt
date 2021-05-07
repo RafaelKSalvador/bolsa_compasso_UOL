@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.AbsListView
 import android.widget.Toast
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.newsnow.ui.activities.MainActivity
@@ -32,16 +33,16 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             val bundle = Bundle().apply {
                 putSerializable("article", it)
             }
-//            findNavController().navigate(
-//                R.id.action_homeFragment_to_articleDetailsFragment,
-//                bundle
-//            )
+            findNavController().navigate(
+                R.id.action_homeFragment_to_articleDetailsFragment,
+                bundle
+            )
         }
 
         viewModel = (activity as MainActivity).viewModel
 
 
-        viewModel.techNews.observe(viewLifecycleOwner, Observer {  response ->
+        viewModel.breakingNews.observe(viewLifecycleOwner, Observer {  response ->
 
             when(response){
 
@@ -54,7 +55,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                     response.data?.let {  newsResponse ->
                         newsAdapter.differ.submitList(newsResponse.articles.toList())
                         val totalPages = newsResponse.totalResults / QUERY_PAGE_SIZE + 2
-                        isLastPage = viewModel.techNewsPage == totalPages
+                        isLastPage = viewModel.breakingNewsPage == totalPages
                     }
                 }
 
@@ -104,7 +105,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             val shouldPaginate = isNotLoadingAndNotLastPage && isAtLastItem && isNotAtBeginning &&
                     isTotalMoreThanVisible && isScrolling
             if (shouldPaginate) {
-                viewModel.getTechNews("techcrunch")
+                viewModel.getBreakingNews("us")
                 isScrolling = false
             } else {
                 top_news_rv.setPadding(0, 0, 0, 0)
