@@ -7,9 +7,9 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 //O endpoint everything - pesquisa todos os artigos publicados por mais de 75.000 fontes diferentes,
-// grandes e pequenas, nos últimos 3 anos.
+//grandes e pequenas, nos últimos 3 anos.
 //O endpoint top-headlines - retorna manchetes de notícias de última hora para países,
-// categorias e editores específicos.
+//categorias e editores específicos.
 
 interface NewsApi {
 
