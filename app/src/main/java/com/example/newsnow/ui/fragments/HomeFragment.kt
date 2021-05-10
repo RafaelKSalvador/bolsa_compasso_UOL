@@ -105,7 +105,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             val shouldPaginate = isNotLoadingAndNotLastPage && isAtLastItem && isNotAtBeginning &&
                     isTotalMoreThanVisible && isScrolling
             if (shouldPaginate) {
-                viewModel.getBreakingNews("us")
+                viewModel.getBreakingNews("br")
                 isScrolling = false
             } else {
                 top_news_rv.setPadding(0, 0, 0, 0)
