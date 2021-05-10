@@ -12,11 +12,9 @@ interface ArticleDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun upsert(article: Article):Long
 
-
     //pega todas as notícias do banco de dados
     @Query("SELECT * FROM articles")
     fun getAllArticles(): LiveData<List<Article>>
-
 
     //deleta o artigo do database
     @Delete
