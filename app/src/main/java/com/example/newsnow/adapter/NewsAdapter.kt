@@ -29,7 +29,7 @@ class NewsAdapter: RecyclerView.Adapter<NewsAdapter.ArticleViewHolder>() {
     }
 
     val differ = AsyncListDiffer(this, differCallback)
-//    O AsyncListDiffer auxilia para calcular a diferença entre duas listas
+    //O AsyncListDiffer auxilia para calcular a diferença entre duas listas
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArticleViewHolder {
 
         return ArticleViewHolder(
