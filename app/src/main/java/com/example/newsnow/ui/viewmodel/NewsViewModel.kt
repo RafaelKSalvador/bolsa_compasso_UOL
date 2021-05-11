@@ -117,11 +117,11 @@ class NewsViewModel(
         newsRepository.upsert(article)
     }
 
-//    fun getSavedArticles() = newsRepository.getSavedNews()
-//
-//    fun deleteArticle(article: Article) = viewModelScope.launch {
-//        newsRepository.deleteArticle(article)
-//    }
+   fun getSavedArticles() = newsRepository.getSavedNews()
+
+   fun deleteArticle(article: Article) = viewModelScope.launch {
+        newsRepository.deleteArticle(article)
+    }
 
 //    //função para testar a conexão com a rede
 //    private fun hasInternetConnection(): Boolean {

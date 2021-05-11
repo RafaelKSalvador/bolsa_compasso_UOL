@@ -19,7 +19,7 @@ class ArticleDetailsFragment : Fragment(R.layout.fragment_article_details) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // inicializa o viewModel
+        //inicializa o viewModel
         viewModel = (activity as MainActivity).viewModel
 
         val article = args.article
@@ -31,10 +31,10 @@ class ArticleDetailsFragment : Fragment(R.layout.fragment_article_details) {
             loadUrl(article.url)
         }
 
-        // botão para salvar artigo
+        //botão para salvar artigo
         save_articles_button.setOnClickListener {
             viewModel.saveArticle(article)
-            Snackbar.make(view, "Article saved successfully", Snackbar.LENGTH_SHORT).show()
+            Snackbar.make(view, "Artigo salvo com sucesso !", Snackbar.LENGTH_SHORT).show()
         }
 
     }
