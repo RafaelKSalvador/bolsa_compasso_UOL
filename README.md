@@ -16,6 +16,7 @@ NewsNow
 ### BottomNavigationView - https://www.thiengo.com.br/bottomnavigationview-android-como-e-quando-utilizar
 ### ItemTouchHelper - https://developer.android.com/reference/kotlin/androidx/recyclerview/widget/ItemTouchHelper
 ### Adicionar ação a uma mensagem - https://developer.android.com/training/snackbar/action?hl=pt-br
+### Coroutines - https://developer.android.com/kotlin/coroutines
 
 ## Descrição do Projeto
 <p align="justify"> A aplicação está sendo desenvolvida para a distribuíção Android que conta com uma arquitetura Model-View-ViewModel (MVVM), está sendo desenvolvida na linguagem
