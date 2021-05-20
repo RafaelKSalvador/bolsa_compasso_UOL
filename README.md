@@ -17,6 +17,9 @@ NewsNow
 ### ItemTouchHelper - https://developer.android.com/reference/kotlin/androidx/recyclerview/widget/ItemTouchHelper
 ### Adicionar ação a uma mensagem - https://developer.android.com/training/snackbar/action?hl=pt-br
 ### Coroutines - https://developer.android.com/kotlin/coroutines
+### Navigation drawer - https://material.io/components/navigation-drawer/android && https://www.youtube.com/watch?v=pucQs0TUe0I
+### Toggle Buttons - https://developer.android.com/guide/topics/ui/controls/togglebutton
+### Adicionar mapas - https://developer.android.com/training/maps?hl=pt-br && https://www.youtube.com/watch?v=rpqi7Y1NQZY
 
 ## Descrição do Projeto
 <p align="justify"> A aplicação está sendo desenvolvida para a distribuíção Android que conta com uma arquitetura Model-View-ViewModel (MVVM), está sendo desenvolvida na linguagem
