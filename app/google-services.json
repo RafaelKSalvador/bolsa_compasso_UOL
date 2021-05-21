@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "326800221223",
+    "project_id": "micro-territory-314413",
+    "storage_bucket": "micro-territory-314413.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:326800221223:android:6108976efe0d5f10231a02",
+        "android_client_info": {
+          "package_name": "com.example.newsnow"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "326800221223-asb6q4buq2vnqbtcahjblij56rvhponb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.newsnow",
+            "certificate_hash": "4ef19c178e1fee6938d823ebf7a8aa78f8f9a564"
+          }
+        },
+        {
+          "client_id": "326800221223-1dklovoadnh9miv1t8u37gh34sid0jbq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATPVCe6YutlH3a1489vIT7CP_36IY0Ar8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "326800221223-1dklovoadnh9miv1t8u37gh34sid0jbq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
