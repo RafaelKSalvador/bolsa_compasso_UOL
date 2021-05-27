@@ -20,6 +20,9 @@ NewsNow
 ### Navigation drawer - https://material.io/components/navigation-drawer/android && https://www.youtube.com/watch?v=pucQs0TUe0I
 ### Toggle Buttons - https://developer.android.com/guide/topics/ui/controls/togglebutton
 ### Adicionar mapas - https://developer.android.com/training/maps?hl=pt-br && https://www.youtube.com/watch?v=rpqi7Y1NQZY
+### Adição de login com e-mail, google e facebook - https://firebase.google.com/docs/android/setup?hl=pt-br && https://firebase.google.com/docs/auth/android/firebaseui?hl=pt-br
+### && https://firebase.google.com/docs/auth/android/google-signin?hl=pt-br && https://firebase.google.com/docs/auth/android/facebook-login?hl=pt-br
+### && https://www.youtube.com/watch?v=-tCIsI7aZGk&t=3s && https://www.youtube.com/watch?v=iQaghh9n1nA&t=0s
 
 ## Descrição do Projeto
 <p align="justify"> A aplicação está sendo desenvolvida para a distribuíção Android que conta com uma arquitetura Model-View-ViewModel (MVVM), está sendo desenvolvida na linguagem
