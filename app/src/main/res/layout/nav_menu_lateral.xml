@@ -10,12 +10,13 @@
         android:layout_height="120dp"
         android:layout_centerInParent="true"
         android:src="@drawable/ic_profile_image"
-        android:id="@+id/foto_do_perfil"/>
+        android:id="@+id/foto_login_fb"/>
 
     <TextView
+        android:id="@+id/nome_login_fb"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/foto_do_perfil"
+        android:layout_below="@id/foto_login_fb"
         android:layout_marginTop="13dp"
         android:text="Rafael Kovhautt"
         android:textSize="15dp"

@@ -11,6 +11,9 @@
     <string name="search_news">Search News</string>
     <string name="abrir">Abrir</string>
     <string name="fechar">Fechar</string>
-    <string name="title_activity_maps">Map</string>
+    <string name="title_activity_maps">Mapas</string>
+    <string name="facebook_app_id">2982357555420480</string>
+    <string name="fb_login_protocol_scheme">fb2982357555420480</string>
+
 
 </resources>

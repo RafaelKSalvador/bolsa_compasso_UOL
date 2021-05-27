@@ -6,5 +6,7 @@
         android:id="@+id/mapa_menu_item"
         android:title="Mapa"/>
 
-
+    <item
+        android:id="@+id/botao_de_logout"
+        android:title="Sair" />
 </menu>
