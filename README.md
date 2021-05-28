@@ -2,7 +2,7 @@
 # Titulo 
 NewsNow
 
-> Status do Projeto: Em desenvolvimento :warning:
+> Status do Projeto: Concluido :heavy_check_mark:
 
 ### Tabela de Conteúdos
    
