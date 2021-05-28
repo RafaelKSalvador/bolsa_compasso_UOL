@@ -25,6 +25,4 @@ NewsNow
 ### && https://www.youtube.com/watch?v=-tCIsI7aZGk&t=3s && https://www.youtube.com/watch?v=iQaghh9n1nA&t=0s
 
 ## Descrição do Projeto
-<p align="justify"> A aplicação está sendo desenvolvida para a distribuíção Android que conta com uma arquitetura Model-View-ViewModel (MVVM), está sendo desenvolvida na linguagem
-Kotlin, a mesma consume um serviço web (API) com o nome de API de notícias que retorna um JSON. O App terá como funcionalidades pricipais: em sua tela inicial será exibido as principais
-notícias do momento podendo visualizar informações da notícia escolhida e salvar a mesma, e podendo também fazer a busca de notícias.</p>
+<p align="justify"> A aplicação foi desenvolvida para a distribuíção Android que conta com uma arquitetura Model-View-ViewModel (MVVM), foi desenvolvida na linguagem Kotlin, a mesma consume um serviço web (API) com o nome de API de notícias que retorna um JSON. O App possui como funcionalidades pricipais: em sua tela inicial será exibido as principais notícias do momento podendo visualizar informações da notícia escolhida e salvar a mesma, e podendo também fazer a busca de notícias.</p>
